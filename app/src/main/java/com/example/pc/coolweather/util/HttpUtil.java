@@ -42,6 +42,7 @@ public class HttpUtil {
                 }catch (Exception e){
                     if (lisenter != null){
                         //回调onError()方法
+                        lisenter.onError(e);
                     }
                 }finally {
                     if (connection != null){

@@ -3,6 +3,7 @@ package com.example.pc.coolweather.db;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 /**
  * Created by PC on 2015/8/15.
@@ -29,7 +30,7 @@ public class CoolWeatherOpenHelper extends SQLiteOpenHelper {
     public static final String CREATE_COUNTY = "create table County(" +
             "id integer primary key autoincrement," +
             "county_name text," +
-            "county_code text" +
+            "county_code text," +
             "city_id integer)";
 
     public CoolWeatherOpenHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
@@ -40,7 +41,9 @@ public class CoolWeatherOpenHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(CREATE_PROVINCE);
         db.execSQL(CREATE_CITY);
+        Log.v("打印county的Sql",CREATE_COUNTY);
         db.execSQL(CREATE_COUNTY);
+
     }
 
     @Override
